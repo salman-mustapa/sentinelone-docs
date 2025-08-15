@@ -1,0 +1,13 @@
+site_name: SentinelOne Documentation
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - mermaid2
+
+mardown_extensions:
+  - admonition
+  - toc:
+      permalink: true
