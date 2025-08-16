@@ -1,13 +1,133 @@
 site_name: SentinelOne Documentation
+site_description: Dokumentasi Lengkap SentinelOne
+site_author: Salman Mustapa
+repo_url: https://github.com/salman-mustapa/sentinelone-docs
+repo_name: salman-mustapa/sentinelone-docs
+# edit_uri: edit/main/docs/
 
 theme:
   name: material
+  language: id
+  logo: images/sentinelone.png
+  favicon: images/sentinelone.png
+  icon:
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
+    repo: fontawesome/brands/github
+    edit: material/pencil
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    - scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+  features:
+    - navigation.tabs         # Menu navigasi tab
+    - navigation.top          # Menu Navigasi di bagian Atas
+    - navigation.sections     # Memisahkan section di sidebar
+    - navigation.expand       # Expand navigasi
+    - navigation.instant      # Navigasi instan
+    - navigation.path         # Menampilkan path navigasi
+    - navigation.instant.progress  # Progress bar saat navigasi
+    - navigation.instant.prefetch  # Prefetch halaman saat navigasi
+    - navigation.tabs.sticky  # Tab tetap di bagian atas
+    - navigation.footer       # Footer navigasi
+    - content.code.copy       # Tombol copy di setiap code block
+    - content.code.annotate   # Dukungan anotasi kode
+    - search.highlight        # Warna ketika melakukan search
+    - search.share            # Melakukan share langsung
+    - content.action.edit     # Tombol edit di setiap halaman
 
 plugins:
-  - search
-  - mermaid2
+  - offline               # Dukungan offline
+  - search                    # Fitur Pencarian
+  - mermaid2                  # Mendukung diagram mermaid
+  - tags
+  - git-revision-date-localized:
+      type: date
+      fallback_to_build_date: true
 
-mardown_extensions:
-  - admonition
+markdown_extensions:
+  - admonition                # Dukungan kotak info, peringatan, dll
   - toc:
-      permalink: true
+      permalink: "#"         # Link acnhor otomatis di setiap header
+      separator: "-"        # Separator untuk daftar isi
+      baselevel: 2          # Level dasar untuk daftar isi
+  - codehilite                # Syntax Higlighting
+  - footnotes                 # Dukungan Footnote
+  - def_list                  # Dukungan definition list
+  - attr_list                 # Dukungan attribut HTML/CSS di markdown
+  - md_in_html                # Markdown bisa di dalam HTML
+  - pymdownx.superfences:                # Mendukung custom code fences (mermaid, dll)
+      custom_fences:
+        - name: mermaid                  # Fences khusus untuk diagram mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.details                     # Dukungan detail/expand di markdown
+  - pymdownx.highlight:                  # Highlight kode dengan anchor di nomor baris
+      anchor_linenums: true
+  - pymdownx.inlinehilite                # Highlight kode inline
+  - pymdownx.snippets                    # Menyisipkan snippet kode
+  - pymdownx.tabbed:                     # Dukungan tab di markdown
+      alternate_style: true
+  - pymdownx.emoji:                      # Dukungan emoji
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+# Page
+nav:
+  - Home: 
+      - Overview: index.md
+      - Commands: 
+          - Windows: home/command-line/windows-command.md
+          - Linux: home/command-line/linux-command.md
+          - MacOS: home/command-line/macos-command.md
+  - Installations:
+      - Windows Agent: installations/windows-agent.md
+      - Linux Agent: installations/linux-agent.md
+      - MacOS Agent: installations/macos-agent.md
+  - Pages:
+      - Policy & Settings: pages/policy_settings.md
+  - Configurations:
+      - Windows: configurations/proxy/windows.md
+      - Linux: configurations/proxy/linux.md
+      - MacOS: configurations/proxy/macos.md
+  - Troubleshooting:
+      - Windows: troubleshoots/installations/windows.md
+      - Linux: troubleshoots/installations/linux.md
+      - MacOS: troubleshoots/installations/macos.md
+
+# Extra
+repo_url: https://github.com/salman-mustapa/sentinelone-docs
+repo_name: salman-mustapa/sentinelone-docs
+
+extra_css:
+  - style/style.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/salman-mustapa
+      name: Github Salman Mustapa
+    - icon: fontawesome/solid/envelope
+      link: mailto:salmanmustapa@outlook.com
+      name: Email Salman Mustapa
+  # generator: false            # Hapus "MKDOCS"
+
+copyright: |
+  <p>
+    © 2025 <a href="https://github.com/salman-mustapa" target="_blank">Salman Mustapa</a>. All rights reserved.
+    <br>
+    <small>
+      Licensed under <a href="https://github.com/salman-mustapa/s1-docs/blob/main/LICENSE" target="_blank">MIT License</a>
+    </small>
+  </p>

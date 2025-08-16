@@ -1,2 +1,6 @@
 mkdocs-material
 mkdocs-mermaid2-plugin
+mkdocs-git-revision-date-localized-plugin
+pymdown-extensions
+mkdocs-git-committers-plugin-2
+mike
